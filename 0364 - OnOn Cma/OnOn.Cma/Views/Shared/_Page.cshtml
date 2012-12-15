@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+@RenderSection("styles", required: false)
+
+<header id="nav-bar" class="container-fluid">
+    <div class="row-fluid">
+        <div class="span5">
+            <div id="header-container">
+                <a id="btn-go-back" onclick="navigationViewModel.goBack()" data-bind="visible: navigationViewModel.Links().length > 1" class="win-backbutton" href="@ViewBag.GoBack"></a>
+                <h5 id="header-title" data-bind="text: navigationViewModel.Title(), attr: { class: navigationViewModel.ColorText() }"></h5>
+            </div>
+        </div>
+        <div class="span2">
+            @*<div id="ajax-progress" class="progress progress-indeterminate hide">
+                <div class="bar"></div>
+            </div>*@
+        </div>
+        <div class="span5">
+            <div class="pull-right">
+                <button id="btn-apply-changes" data-bind="enable: changesViewModel.Changes().length > 0" type="button" class="btn btn-link"><i class="icon-install"></i> Salvar Alterações</button>
+                <button id="btn-publish-all" type="button" class="btn btn-danger"><i class="icon-broadcast"></i> Publicar Tudo</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="metro span12">
+            <div class="metro-sections">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="appBar" class="hide win-commandlayout navbar-fixed-bottom win-ui-light">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            @RenderSection("appBar", required: false)   
+        </div>
+    </div>
+</footer>
+
+<footer id="sectionBar" class="hide win-commandlayout navbar-fixed-bottom win-ui-light">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            @RenderSection("sectionBar", required: false)   
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/custom/init.js")"></script>
+@RenderSection("scripts", required: false)

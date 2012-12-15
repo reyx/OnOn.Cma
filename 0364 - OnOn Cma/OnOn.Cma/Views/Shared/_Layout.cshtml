@@ -1,0 +1,118 @@
+﻿@{
+    Layout = null;
+
+    string rootPath = Url.Content("~");
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>OnOn!</title>
+
+    <meta name="description" content="onon">
+    <meta name="author" content="asteria">
+
+    <!-- remove or comment this line if you want to use the local fonts -->
+    @*<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>*@
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Bootstrap/css/bootstrap.min.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Bootstrap/css/bootstrap-responsive.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Bootstrap/css/bootmetro.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Bootstrap/css/bootmetro-tiles.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Bootstrap/css/metro-ui-dark.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Bootstrap/css/icomoon.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/datepicker.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/daterangepicker.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/jquery-ui.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/main.css")">
+    @RenderSection("styles", required: false)
+</head>
+<body>
+
+    @Html.Hidden("root-path", rootPath.Remove(rootPath.Length - 1))
+
+    <div id="bg">
+	    <img src="" alt="">
+    </div>
+
+    <div id="ajax-progress" class="progress progress-indeterminate">
+        <div class="bar"></div>
+    </div>
+
+    <div id="container">
+        @RenderBody()
+    </div>
+
+    <!-- Message -->
+    <div id="message-modal" class="modal warning hide fade" tabindex="-1" role="dialog" aria-labelledby="message-modal-label" aria-hidden="true">
+        <div id="message-modal-body" class="modal-body">
+            
+        </div>
+        <div class="modal-footer">            
+            <button id="message-modal-close" class="btn" data-dismiss="modal" aria-hidden="true">Ok</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="confirm-modal" class="modal message hide fade" tabindex="-1" role="dialog" aria-labelledby="confirm-modal-label" aria-hidden="true">
+        <div class="modal-header">
+            <h3 id="confirm-modal-label"></h3>
+        </div>
+        <div id="confirm-modal-body" class="modal-body">
+            
+        </div>
+        <div class="modal-footer">
+            <button id="confirm-modal-no" class="btn" data-dismiss="modal">Não</button>
+            <button id="confirm-modal-yes" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Sim</button>
+        </div>
+    </div>
+
+    <!-- Image Upload -->
+    <div id="image-upload-modal" class="modal message hide fade" tabindex="-1" role="dialog" aria-labelledby="confirm-modal-label" aria-hidden="true">
+        <div class="modal-header">
+            <h2 id="image-upload-modal-label">Galeria de Imagens</h2>
+            <br />
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#uploads-tab" data-toggle="tab">Upload</a></li>
+                <li><a href="#gallery-tab" data-toggle="tab">Galeria</a></li>
+            </ul>
+        </div>
+        <div id="image-upload-modal-body" class="modal-body"></div>
+        <div class="modal-footer">
+            <button id="btn-image-upload-return" class="btn" data-dismiss="modal" aria-hidden="true">Retornar</button>
+            <button id="btn-image-upload-select" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Ok</button>
+        </div>
+    </div>
+
+    <!-- The Script -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.js")"></script>
+
+    <!-- Plugins -->
+    <script type="text/javascript" src="@Url.Content("~/Content/Bootstrap/js/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/plugins/jquery.mousewheel.min.js")"></script>
+    @*<script type="text/javascript" src="@Url.Content("~/Scripts/plugins/jquery.textarea-expander.js")"></script>*@
+    <script type="text/javascript" src="@Url.Content("~/Scripts/plugins/jquery.autogrow-textarea.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/plugins/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/plugins/knockout-2.2.0.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/plugins/knockout.mapping.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/plugins/jquery.isotope.min.js")"></script>
+
+    <!-- Models -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ViewModels/NavigationViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ViewModels/ChangesViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ViewModels/ChangeViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ViewModels/HomeViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ViewModels/NewsViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ViewModels/IssueViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ViewModels/SectionViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ViewModels/PageViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ViewModels/FilesViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ViewModels/FileInfoViewModel.js")"></script>
+
+    <!-- Custom -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnOn.Cma", "OnOn.Cma\OnOn.Cma.csproj", "{E6E89BE8-7848-4A76-8D89-0376AF94599B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.0.83:2010/tfs/som%20-%20somare
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = OnOn.Cma\\OnOn.Cma.csproj
+		SccProjectName1 = OnOn.Cma
+		SccLocalPath1 = OnOn.Cma
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6E89BE8-7848-4A76-8D89-0376AF94599B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E89BE8-7848-4A76-8D89-0376AF94599B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E89BE8-7848-4A76-8D89-0376AF94599B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E89BE8-7848-4A76-8D89-0376AF94599B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

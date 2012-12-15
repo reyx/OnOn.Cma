@@ -1,0 +1,149 @@
+﻿@{
+    Layout = "~/Views/Shared/_Page.cshtml";
+}
+
+@section styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/section.css")">
+}
+
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/custom/section.js")"></script>
+
+    <script type="text/html" id="page-template">
+        <div class="block" data-bind="style: { top: (Row() * 250) + 'px', left: (Column() * 250) + 'px' }, attr: { page: Id(), 'data-type': OriginalType(), class: 'block ' + sizeClass() + ' ' + positionClass() + ' ' + sectionViewModel.ColorClass() }">
+            <img data-bind="attr: { src: ImageComputed() }, visible: ImageVisible()" class="image">
+            <div class="text-container">
+                <textarea rows="1" data-bind="value: Title" placeholder="Title" class="title"></textarea>
+                <textarea rows="1" data-bind="value: Subtitle" placeholder="Subtitle" class="subtitle"></textarea>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="block-template">
+        <div class="block" data-type="horizontal" data-bind="attr: { class: 'block ' + sizeClass() + ' ' + positionClass() }"></div>
+    </script>
+}
+
+@section appBar {
+    <div class="span6 align-left">
+
+        <button id="btn-templates-show" class="win-command hide">
+            <span class="win-commandimage win-commandring">&#xe104;</span>
+            <span class="win-label">Exibir Templates</span>
+        </button>
+
+        <button id="btn-templates-hide" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe105;</span>
+            <span class="win-label">Ocultar Templates</span>
+        </button>
+
+    </div>
+
+    <div class="span6 align-right">
+
+        <button id="btn-section-image" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe118;</span>
+            <span class="win-label">Imagem Semântica</span>
+        </button>
+
+    </div>
+}
+
+@section sectionBar {
+    <div class="span6 align-left">        
+
+    </div>
+
+    <div class="span6 align-right">
+
+        <button id="btn-page-delete" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe002;</span>
+            <span class="win-label">Excluir Selecionados</span>
+        </button>
+
+        <button id="btn-page-image" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe118;</span>
+            <span class="win-label">Imagem de Capa</span>
+        </button>
+
+        <button id="btn-page-edit" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe202;</span>
+            <span class="win-label">Editar Conteúdo</span>
+        </button>
+
+    </div>
+}
+
+<div class="metro-section" id="keys">
+    <h2 id="txt-templates" data-bind="attr: { class: sectionViewModel.ColorText }">Templates</h2>
+
+    <div data-type="vertical" data-bind="attr: { class: 'key s1x2 vertical ui-draggable ' + sectionViewModel.ColorClass() }">
+        <img src="@Url.Content("~/Content/img/templates/vertical-thumb.jpg")" alt="">
+        <div class="text">
+            <p>Titulo</p>
+            <small>subtitulo</small>
+        </div>
+    </div>
+    <div data-type="vertical-2" data-bind="attr: { class: 'key s1x2 vertical-2 ui-draggable ' + sectionViewModel.ColorClass() }">
+        <img src="@Url.Content("~/Content/img/templates/vertical-2-thumb.jpg")" alt="">
+        <div data-bind="attr: { class: 'text ' + sectionViewModel.ColorClass() }">
+            <p>Titulo</p>
+            <small>subtitulo</small>
+        </div>
+    </div>
+    <div data-type="vertical-3" data-bind="attr: { class: 'key s1x2 vertical-3 ui-draggable ' + sectionViewModel.ColorClass() }">
+        <div class="text">
+            <p>Titulo</p>
+            <small>subtitulo</small>
+        </div>
+        <img src="@Url.Content("~/Content/img/templates/vertical-3-thumb.jpg")" alt="">
+    </div>
+    <div data-type="middle-text" data-bind="attr: { class: 'key s1x1 middle-text ui-draggable ' + sectionViewModel.ColorClass() }">
+        <div class="text">
+            <p>Titulo</p>
+            <small>subtitulo</small>
+        </div>
+    </div>
+    <div data-type="horizontal" data-bind="attr: { class: 'key s2x1 horizontal ui-draggable ' + sectionViewModel.ColorClass() }">
+        <img src="@Url.Content("~/Content/img/templates/horizontal-thumb.jpg")" alt="">
+        <div class="text">
+            <p>Titulo</p>
+            <small>subtitulo</small>
+        </div>
+    </div>
+    <div data-type="middle-image" data-bind="attr: { class: 'key s1x1 middle-image ui-draggable ' + sectionViewModel.ColorClass() }">
+        <img src="@Url.Content("~/Content/img/templates/middle-image-thumb.jpg")" alt="">
+        <div class="text">
+            <p>Titulo</p>
+            <small>subtitulo</small>
+        </div>
+    </div>
+    <div data-type="horizontal-2" data-bind="attr: { class: 'key s2x1 horizontal-2 ui-draggable ' + sectionViewModel.ColorClass() }">
+        <div class="text">
+            <p>Titulo</p>
+            <small>subtitulo</small>
+        </div>
+        <img src="@Url.Content("~/Content/img/templates/horizontal-2-thumb.jpg")" alt="">
+    </div>
+</div>
+
+<div class="metro-section working-area">
+    <h2 class="color-selector">
+        <button data-bind="attr: { class: sectionViewModel.ColorClass }"></button>
+        <ul class="hide">
+            <li><a href="#" class="dark-grey">&nbsp;</a></li>
+            <li><a href="#" class="light-gray">&nbsp;</a></li>
+            <li><a href="#" class="dark-blue">&nbsp;</a></li>
+            <li><a href="#" class="blue">&nbsp;</a></li>
+            <li><a href="#" class="cyan">&nbsp;</a></li>
+            <li><a href="#" class="green">&nbsp;</a></li>
+            <li><a href="#" class="orange">&nbsp;</a></li>
+            <li><a href="#" class="red">&nbsp;</a></li>
+            <li><a href="#" class="pink">&nbsp;</a></li>
+            <li><a href="#" class="purple">&nbsp;</a></li>
+        </ul>
+    </h2>
+
+    <div class="grid placeholder-grid" data-bind="template: { name: 'block-template', foreach: placeHolderSectionViewModel.Pages, afterRender: sectionViewModel.pageRendered }"></div>
+    <div class="grid working-grid" data-bind="template: { name: 'page-template', foreach: sectionViewModel.Pages, afterRender: sectionViewModel.pageRendered }"></div>
+</div>

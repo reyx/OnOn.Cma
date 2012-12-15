@@ -1,0 +1,10 @@
+﻿#image-upload-modal { top: 10%; padding: 0 5%; width: 90%; }
+#image-upload-modal-body { max-height: 450px; }
+.thumbnails { padding: 5px; }
+.thumbnails > li { max-width: 180px; height: 240px; text-align: center; position: relative; }
+.thumbnails > li img { max-width: 170px; max-height: 170px; }
+
+.thumbnail .caption { overflow: hidden; }
+.thumbnail .caption a { }
+.thumbnail .caption strong { font-size: 1.4em; }
+.thumbnail .caption small { line-height: 2em; }

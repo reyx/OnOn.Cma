@@ -1,0 +1,4 @@
+﻿.grid { top: 44px; }
+.metro-sections { overflow-x: auto !important; }
+.metro-section { min-width: 250px; margin: 5px 80px 5px 5px; height: 548px; }
+.metro-section textarea.issue-name { font-family: "Segoe UI SemiLight"; font-size: 26px; margin-left: 4px; height: 36px !important; }

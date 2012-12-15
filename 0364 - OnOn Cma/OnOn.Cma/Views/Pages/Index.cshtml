@@ -1,0 +1,20 @@
+@{
+    Layout = "~/Views/Shared/_Page.cshtml";
+}
+
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/custom/page.js")"></script>
+}
+
+@section appBar {
+    <div class="span6 align-left">
+
+        <button id="btn-news-image" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe118;</span>
+            <span class="win-label">Alterar Template</span>
+        </button>
+
+    </div>
+}
+
+<div id="template"></div>

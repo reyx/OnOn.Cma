@@ -1,0 +1,103 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0; padding: 0; }
+
+body { overflow: hidden; margin: 20px 0; }
+
+textarea { resize: none; outline: none; background: transparent; border: none; overflow: auto; padding: 0; margin: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
+textarea:hover { background: transparent; border: none; color: inherit; }
+textarea:focus { background: transparent; color: inherit !important; border: none; outline: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
+
+#bg { position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; }
+#bg img { position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; min-width: 50%; min-height: 50%; }
+
+a { color: #009ee0; }
+li { list-style: none; }
+#header-container h5,
+.metro-section h2 { font-family: "Segoe UI Light"; margin-left: 0; }
+#header-container h5 { font-size: 4em; margin-top: 14px; }
+.metro-sections h2 { font-family: "Segoe UI SemiLight"; text-transform: none; margin-bottom: 12px; }
+a:hover, a:hover:active { background-color: #666666; color: white; text-decoration: none; }
+button.win-command { min-width: 46px; }
+.win-backbutton { line-height: 36px; left: 36px; }
+::selection, select:focus::-ms-value { background-color: #666666; color: white; }
+
+.container-fluid { padding-left: 116px; padding-right: 116px; }
+
+.text-container { }
+.text-container span,
+.text-container textarea { color: white; line-height: 16px; margin: 2px 4px; text-align: left; display: block; font-family: "Segoe UI Light";  }
+.text-container .title { font-size: 1.5em; line-height: 28px; }
+.text-container .subtitle { font-size: .9em; line-height: 20px; }
+.text-container textarea::-webkit-input-placeholder { color: #ccc; }
+
+.header-add { position: relative; top: 12px; height: 16px; }
+
+.text-darkGrey { color: #272213; background: transparent; }
+.text-lightGray { color: #4b575f; background: transparent; }
+.text-red { color: #e42618; background: transparent; }
+.text-cyan { color: #009580; background: transparent; }
+.text-blue { color: #009ee0; background: transparent; }
+.text-darkBlue { color: #10206b; background: transparent;  }
+.text-green { color: #17a345; background: transparent; }
+.text-orange { color: #f18e00; background: transparent; }
+.text-pink { color: #a2027b; background: transparent; }
+.text-purple { color: #750d68; background: transparent; }
+.text-white { color: #ffffff; background: transparent; }
+
+.dark-grey { background: #272213; }
+.light-gray { background: #4b575f; }
+.red { background: #e42618; }
+.cyan { background: #009580; }
+.blue { background: #009ee0; }
+.dark-blue { background: #10206b; }
+.green { background: #17a345; }
+.orange { background: #f18e00; }
+.pink { background: #a2027b; }
+.purple { background: #750d68 ; }
+.white { background: #ffffff ; }
+
+#appBar .win-command,
+#sectionBar .win-command { vertical-align: top; }
+#appBar .win-command .win-label,
+#sectionBar .win-command .win-label { margin-top: 6px; }
+
+.modal-header,
+.modal-body { color: #333; }
+
+.selected { outline: 4px #333 solid; }
+.selected:after {
+    width: 0;
+    height: 0;
+    border-top: 40px solid #333;
+    border-left: 40px solid transparent;
+    position: absolute;
+    display: block;
+    right: 0;
+    content: "";
+    top: 0;
+    z-index: 1000;
+}
+.selected:before {
+    position: absolute;
+    content: "\2714";
+    color: #fff;
+    right: 5px;
+    font-family: Tahoma;
+    z-index: 2000;
+}
+
+.progress { height: 5px; }
+.progress-indeterminate { height: 20px; }
+
+#ajax-progress { position: absolute; top: 4px; left: 50%; margin-left: -94px; }

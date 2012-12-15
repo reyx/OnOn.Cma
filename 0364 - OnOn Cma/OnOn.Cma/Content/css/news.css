@@ -1,0 +1,18 @@
+﻿#news-content { 
+    border: none;
+    background: transparent;
+    outline: none;
+    color: white;
+    overflow: auto;
+    resize: none;
+    line-height: 16px;
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI Light";
+    margin: 2px 4px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    height: 500px;
+    padding-right: 20px;
+}

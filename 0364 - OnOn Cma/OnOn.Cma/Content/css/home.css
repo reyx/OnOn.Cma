@@ -1,0 +1,44 @@
+﻿#news,
+#news-list { border: 10px solid transparent; position: relative; margin: 0px; padding: 0px; }
+
+#issues { height: 500px; }
+#news li:hover,
+#news-list li:hover,
+#issues li:hover { background: #333; outline: 4px solid #333; }
+#news .text-container textarea,
+#news-list .text-container textarea,
+#issues .text-container textarea { font-weight: normal; width: 220px; }
+
+.box-container { width: 420px; background: black; display: block; position: relative; }
+
+.box-container,
+#news,
+#news-list { height: 490px; min-width: 420px; }
+#news li,
+#news-list li,
+li.ui-draggable { position: relative; width: 390px; height: 107px; margin: 5px; cursor: default; float: left; }
+#news img,
+#news .text-container,
+#news-list img,
+li.ui-draggable img,
+li.ui-draggable .text-container,
+#news-list .text-container { float: left; }
+#news img,
+#news-list img,
+li.ui-draggable img { width: 108px; }
+#news .text-container,
+#news .text-container textarea,
+#news-list .text-container,
+#news-list .text-container textarea,
+li.ui-draggable .text-container,
+li.ui-draggable .text-container textarea { width: 260px; margin: 2px 4px; }
+
+#issues-section,
+#news-list-section { overflow-x: auto; overflow-y: hidden; height: 564px; }
+
+#issues li { margin: 0 10px 10px 0; width: 240px; height: 240px; }
+#issues li img { position: absolute; top: 0; }
+#issues li .text-block { position: absolute; bottom: 0; width: 240px; height: 70px; }
+#issues li .text-container { position: absolute; bottom: 0; width: 220px; margin: 0 10px; }
+#issues li.featured { height: 490px; }
+#issues li.featured .text-block { height: 100px; }

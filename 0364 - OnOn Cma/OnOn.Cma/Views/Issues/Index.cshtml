@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/Views/Shared/_Page.cshtml";
+}
+
+@section styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/section.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/issue.css")">
+}
+
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/custom/issue.js")"></script>
+
+    <script type="text/html" id="section-template">
+        <div class="metro-section working-area" data-bind="attr: { section: Id() }, style: { width: GridSize() }">
+            <textarea rows="1" rows="1" data-bind="attr: { class: 'issue-name ' + ColorText() }, value: Name"></textarea>
+            <div class="grid working-grid" data-bind="template: { name: 'page-template', foreach: Pages, afterAdded: issueViewModel.pageRendered }"></div>
+        </div>
+    </script>
+
+    <script type="text/html" id="page-template">
+        <div class="block" data-bind="style: { top: (Row() * 250) + 'px', left: (Column() * 250) + 'px' }, attr: { page: Id(), 'data-type': OriginalType(), class: 'block hide ' + sizeClass() + ' ' + positionClass() + ' ' + Section.ColorClass() }">
+            <img data-bind="attr: { src: ImageComputed() }, visible: ImageVisible()" class="image">
+            <div class="text-container">
+                <span data-bind="text: Title" class="title"></span>
+                <span data-bind="text: Subtitle" class="subtitle"></span>
+            </div>
+        </div>
+    </script>
+}
+
+@section appBar {
+    <div class="span6 align-left">
+
+        <button id="btn-section-add" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe1f5;</span>
+            <span class="win-label">Adicionar Seção</span>
+        </button>
+
+        <button id="btn-issue-background" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe118;</span>
+            <span class="win-label">Imagem de Fundo</span>
+        </button>
+
+    </div>
+
+    <div class="span6 align-right">
+        
+    </div>
+}
+
+@section sectionBar {
+    <div class="span6 align-left">
+
+    </div>
+
+    <div class="span6 align-right">
+
+        <button id="btn-section-delete" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe002;</span>
+            <span class="win-label">Excluir Selecionados</span>
+        </button>
+
+        <button id="btn-section-edit" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe202;</span>
+            <span class="win-label">Editar Seção</span>
+        </button>
+        
+    </div>
+}
+
+<h2 class="text-blue" data-bind="visible: issueViewModel.Done() && issueViewModel.Sections().length === 0">Esta edição não contém seções. Para adicionar uma nova seção, clique com o botão direito na tela e selecione a opção "Adicionar Seção" no canto inferior esquerdo.</h2>
+<div data-bind="template: { name: 'section-template', foreach: issueViewModel.Sections, afterRender: issueViewModel.sectionRendered }" class="sort-list"></div>

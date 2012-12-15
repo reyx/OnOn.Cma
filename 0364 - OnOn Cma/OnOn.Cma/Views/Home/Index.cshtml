@@ -1,0 +1,149 @@
+﻿@{    
+    Layout = "~/Views/Shared/_Page.cshtml";
+}
+
+@section styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/home.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/isotope.css")">
+}
+
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/custom/home.js")"></script>
+
+    <script type="text/html" id="news-template">
+        <li data-bind="attr: { news: Id() }">
+            <img data-bind="attr: { src: Thumbnail }" alt="thumbnail" />
+            <div class="text-container">
+                <textarea rows="1" data-bind="value: Title" class="title" placeholder="Titulo"></textarea>
+                <textarea rows="1" data-bind="value: Subtitle" class="subtitle" placeholder="Subtitulo"></textarea>
+            </div>
+        </li>
+    </script>
+
+    <script type="text/html" id="issues-template">
+        <li data-bind="attr: { issue: Id(), class: Type() }">
+            <img class="old-image" data-bind="attr: { src: Image }" alt="thumbnail" />
+            <img class="featured-image hide" data-bind="attr: { src: FeaturedImage }" alt="featured" />
+            <div class="blue text-block">
+                <div class="text-container">
+                    <textarea rows="1" data-bind="value: Title" class="title" placeholder="Titulo"></textarea>
+                    <textarea rows="1" data-bind="value: Subtitle" class="subtitle" placeholder="Subtitulo"></textarea>
+                </div>
+            </div>
+        </li>
+    </script>
+}
+
+@section appBar {
+    <div class="span6 align-left">
+
+        <button id="btn-news-list" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe19b;</span>
+            <span class="win-label">Listar Notícias</span>
+        </button>
+
+        <button id="btn-issue-list" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe19b;</span>
+            <span class="win-label">Listar Edições</span>
+        </button>
+
+        <button id="btn-news-add" class="win-command">
+            <span class="win-commandimage win-commandring">&#x0024;</span>
+            <span class="win-label">Adicionar Notícia</span>
+        </button>
+
+        <button id="btn-issue-add" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe017;</span>
+            <span class="win-label">Adicionar Edição</span>
+        </button>
+
+    </div>
+
+    <div class="span6 align-right">
+        
+    </div>
+}
+
+@section sectionBar {
+
+    <div class="span6 align-left">
+
+        <button id="btn-issue-featured-image" class="win-command">
+            <span class="win-commandimage win-commandring">&#x0068;</span>
+            <span class="win-label">Editar Imagem Maior</span>
+        </button>
+
+        <button id="btn-issue-old-image" class="win-command">
+            <span class="win-commandimage win-commandring">&#x0069;</span>
+            <span class="win-label">Editar Imagem Menor</span>
+        </button>
+
+    </div>
+
+    <div class="span6 align-right">
+
+        <button id="btn-news-delete" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe002;</span>
+            <span class="win-label">Excluir Notícias Selecionadas</span>
+        </button>
+
+        <button id="btn-issue-public" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe03c;</span>
+            <span class="win-label">Tornar Público</span>
+        </button>
+
+        <button id="btn-issue-edit" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe202;</span>
+            <span class="win-label">Editar Conteúdo</span>
+        </button>
+
+        <button id="btn-issue-size" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe1d3;</span>
+            <span class="win-label">Alternar Tamanho</span>
+        </button>
+
+        <button id="btn-news-thumbnail" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe118;</span>
+            <span class="win-label">Editar Thumbnail</span>
+        </button>
+
+        <button id="btn-news-edit" class="win-command">
+            <span class="win-commandimage win-commandring">&#x0024;</span>
+            <span class="win-label">Editar Notícia</span>
+        </button>
+
+        <button id="btn-news-activate" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe162;</span>
+            <span class="win-label">Ativar Notícias Selecionadas</span>
+        </button>
+
+        <button id="btn-news-inactivate" class="win-command">
+            <span class="win-commandimage win-commandring">&#xe160;</span>
+            <span class="win-label">Inativar Notícias Selecionadas</span>
+        </button>
+        
+    </div>
+}
+
+<div id="news-section" class="metro-section">
+    <h2 class="text-green">News</h2>
+    <div class="box-container">
+        <ul data-bind="template: { name: 'news-template', foreach: homeViewModel.ActiveNews, afterAdd: homeViewModel.activeNewsAdded }" id="news"></ul>
+    </div>
+</div>
+
+<div id="issues-section" class="metro-section horizontal-wheel">
+    <h2 class="text-blue">Edições</h2>
+    <ul data-bind="template: { name: 'issues-template', foreach: homeViewModel.Issues, afterAdd: homeViewModel.issueAdded }" id="issues"></ul>
+</div>
+
+<div id="news-list-section" class="metro-section horizontal-wheel hide">
+    <h2 class="text-blue">Lista de notícias</h2>
+    <div class="box-container">
+        <ul data-bind="template: { name: 'news-template', foreach: homeViewModel.InactiveNews, afterAdd: homeViewModel.inactiveNewsAdded }" id="news-list"></ul>
+    </div>
+</div>
+
+<form>
+    @Html.Hidden("home-data", (HtmlString)Html.Raw(ViewBag.Data))
+</form>
